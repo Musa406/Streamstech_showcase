@@ -1,23 +1,16 @@
-import { Component } from '@angular/core';
-import { BiService } from './services/bi.service';
-import { ConsultancyService } from './services/consultancy.service';
-import { GisService } from './services/gis.service';
-import { MEService } from './services/m-e.service';
-import { MobileAppService } from './services/mobile-app.service';
-import { TechnologyStackService } from './services/technology-stack.service';
-import { WebAppService } from './services/web-app.service';
-
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
   config: any;
   fullpage_api: any;
 
-  sections: string[] = ['sec1', 'sec2', 'sec3', 'sec4', 'sec5', 'sec6'];
+   projectItems: string[] = ['gis', 'me', 'web-app', 'mobile-app', 'bi', 'consultancy'];
+
 
   constructor() {
 
@@ -43,6 +36,8 @@ export class AppComponent {
       }
     };
   }
+  // tslint:disable-next-line: use-lifecycle-interface
+  ngOnInit() {}
 
   getRef(fullPageRef) {
     this.fullpage_api = fullPageRef;

@@ -14,6 +14,12 @@ import { ContactComponent } from './contact/contact.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { ProjectsComponent } from './projects/projects.component';
 import { TechnologyStackComponent } from './technology-stack/technology-stack.component';
+import { GisService } from './services/gis.service';
+import { MEService } from './services/m-e.service';
+import { WebAppService } from './services/web-app.service';
+import { MobileAppService } from './services/mobile-app.service';
+import { BiService } from './services/bi.service';
+import { ConsultancyService } from './services/consultancy.service';
 
 // import { Ng2CarouselamosModule } from 'ng2-carouselamos';
 
@@ -37,7 +43,7 @@ import { TechnologyStackComponent } from './technology-stack/technology-stack.co
     RecaptchaModule.forRoot()
 
   ],
-  providers: [],
+  providers: [GisService, MEService, WebAppService, MobileAppService, BiService, ConsultancyService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

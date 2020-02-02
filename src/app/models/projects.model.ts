@@ -1,4 +1,4 @@
-export class ProjectsModel{
-    constructor(public imagePath: string, public caption: string, public footerCation: string){
+export class ProjectsModel {
+    constructor(public username: string, public caption: string, public imagepath: string) {
     }
 }

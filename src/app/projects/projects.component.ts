@@ -1,11 +1,14 @@
-import { Component, OnInit } from '@angular/core';
-// import { BiService } from '../services/bi.service';
-// import { ConsultancyService } from '../services/consultancy.service';
-// import { GisService } from '../services/gis.service';
-// import { MEService } from '../services/m-e.service';
-// import { MobileAppService } from '../services/mobile-app.service';
-// import { TechnologyStackService } from '../services/technology-stack.service';
-// import { from } from 'rxjs';
+import { Component, OnInit , Input} from '@angular/core';
+import { ProjectsModel } from '../models/projects.model';
+
+import { BiService } from '../services/bi.service';
+import { ConsultancyService } from '../services/consultancy.service';
+import { GisService } from '../services/gis.service';
+import { MEService } from '../services/m-e.service';
+import { MobileAppService } from '../services/mobile-app.service';
+import { WebAppService } from '../services/web-app.service';
+
+import { from } from 'rxjs';
 @Component({
   selector: 'app-projects',
   templateUrl: './projects.component.html',
@@ -13,37 +16,52 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProjectsComponent implements OnInit {
 
-  // title = 'GIS';
-  // description = 'Streams Tech Ltd. provides unique and smart GIS development and geospatial data processing services.'
+  itemService: ProjectsModel[] = [];
+  // me: ProjectsModel[] = [];
+  // webApp: ProjectsModel[] = [];
+  // mobileApp: ProjectsModel[] = [];
+  // bi: ProjectsModel[] = [];
+  // consultancy: ProjectsModel[] = [];
+   @Input() sectionItem: string;
 
-  // customOptions: any = {
-  //   loop: true,
-  //   mouseDrag: false,
-  //   touchDrag: false,
-  //   pullDrag: false,
-  //   dots: false,
-  //   navSpeed: 700,
-  //   navText: ['', ''],
-  //   responsive: {
-  //     0: {
-  //       items: 1
-  //     },
-  //     400: {
-  //       items: 2
-  //     },
-  //     740: {
-  //       items: 3
-  //     },
-  //     940: {
-  //       items: 4
-  //     }
-  //   },
-  //   nav: true
-  // };
-
-  constructor() { }
+  constructor(
+    private httpGis: GisService,
+    private httpME: MEService,
+    private httpWebApp: WebAppService,
+    private httMobileApp: MobileAppService,
+    private httpBI: BiService,
+    private httpConsultancy: ConsultancyService
+  ) { }
 
   ngOnInit() {
+
+
+    if (this.sectionItem === 'gis') {
+      this.httpGis.getGIS()
+      .subscribe(data1 => this.itemService = data1);
+
+    } else if (this.sectionItem === 'me') {
+      this.httpME.getME()
+      .subscribe(data2 => this.itemService = data2);
+
+    } else if (this.sectionItem === 'web-app') {
+      this.httpWebApp.getWebApp()
+      .subscribe(data3 => this.itemService = data3);
+
+    } else if (this.sectionItem === 'mobile') {
+      this.httMobileApp.getMobileApp()
+      .subscribe(data4 => this.itemService = data4);
+
+    } else if (this.sectionItem === 'bi') {
+      this.httpBI.getBi()
+      .subscribe(data5 => this.itemService = data5);
+
+    } else{
+      this.httpConsultancy.getConsultancy()
+      .subscribe(data6 => this.itemService = data6);
+
+    }
+
   }
 
 }
