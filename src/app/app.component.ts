@@ -9,8 +9,9 @@ export class AppComponent implements OnInit{
   config: any;
   fullpage_api: any;
 
-   projectItems: string[] = ['gis', 'me', 'web-app', 'mobile-app', 'bi', 'consultancy'];
+  sectionApis: string[] = ['values', 'values', 'values', 'values', 'values', 'values'];
 
+  // sectionApis: string[] = ['gis', 'me', 'web-app', 'mobile-app', 'bi', 'consultancy'];
 
   constructor() {
 

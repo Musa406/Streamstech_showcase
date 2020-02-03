@@ -1,0 +1,36 @@
+<div>
+
+    <div class="ml-5">
+        <div>
+            <h2>{{sectionTitle}}</h2>
+        </div>
+        <div class="col-md-6">
+            <p>{{sectionDescription}}</p>
+        </div>
+    </div>
+    
+    
+    <div class="row ml-5">
+        <div class="mb-3" *ngFor="let item of itemsInSection">
+            <div class="col-md-3 col-sm-6 d-inline-block flex-wrap"   >
+                <div class="ih-item circle effect3 left_to_right" >
+                    <a href="https://git-scm.com/docs/git-remote" >
+                        <!-- <div class="spinner"></div> -->
+                        <div class="img">
+                            <img src="{{item.imagepath}}" alt="image" class="img-responsive wp-image-380 p-1">
+                        </div>
+        
+                        <div class="info">
+                                <p style="color: aliceblue; padding-top: 15%;">{{item.caption}}</p>
+                        </div>
+                    </a>
+                </div>
+            </div>
+    
+            <div class="offset-5">
+                <h2>{{item.footer}}</h2>
+            </div>
+        </div>
+    </div>
+    
+</div>

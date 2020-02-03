@@ -1,4 +1,4 @@
-export class AboutModel{
-    constructor(public imagePath: string, public title: string, public description: string){
+export class AboutModel {
+    constructor(public title: string, public description: string, public image: string){
     }
 }

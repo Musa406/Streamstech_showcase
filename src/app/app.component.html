@@ -1,15 +1,26 @@
-
+<!-- 
 <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)">
 
   <div class="section"><app-about></app-about></div>
   
-  <div class="section" *ngFor = "let item of projectItems; let i = index" (sectionItem) = "item"><app-projects></app-projects></div>
+  <div class="section" *ngFor = "let apiPath of sectionApis; let i = index" (sectionApi) = "apiPath"><app-sections></app-sections></div>
 
   <div class="section"><app-technology-stack></app-technology-stack></div>
 
   <div class="section"><app-contact></app-contact>></div>
 
 </div>
+   -->
+
+   <div fullpage id="fullpage" [options]="config" (ref)="getRef($event)">
+
+    <div class="section"><app-about></app-about></div>
+    
+    <div class="section" *ngFor = "let item of sectionApis; let i = index" (sectionApi) = "item"><app-sections></app-sections></div>
   
-
-
+    <div class="section"><app-technology-stack></app-technology-stack></div>
+  
+    <div class="section"><app-contact></app-contact></div>
+  
+  </div>
+    

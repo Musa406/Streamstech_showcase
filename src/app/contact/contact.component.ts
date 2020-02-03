@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
-import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact',
@@ -9,7 +8,7 @@ import { ContactService } from '../services/contact.service';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder, private contactService: ContactService) { }
+  constructor(private formBuilder: FormBuilder) { }
 
   contactDescription;
 
@@ -30,11 +29,11 @@ export class ContactComponent implements OnInit {
   }
 
   onContactSubmit() {
-    this.contactService.postContactData(this.contactUsForm.value)
-    .subscribe(
-      response => console.log('Successfully submit', response),
-      error => console.log('Error', error)
-    );
+    // this.contactService.postContactData(this.contactUsForm.value)
+    // .subscribe(
+    //   response => console.log('Successfully submit', response),
+    //   error => console.log('Error', error)
+    // );
 
   }
 
