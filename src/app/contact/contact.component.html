@@ -15,30 +15,40 @@
     </div>
 </div>
 
+<div  *ngIf = "show">
+    <h2>Successfully submitted</h2>
+</div>
 
 <div class="row">
     <div class="col-md-4"></div>
     <div class="col-md-4">
-        
+
         <div class="container-fluid margin-top">
-            <form [formGroup]="contactUsForm" (click) = "onContactSubmit()">
-            
+            <form [formGroup]="contactUsForm" (ngSubmit) = "onContactSubmit()">
+
                 <div class="form-group align-center" >
-                    <input type = "text" class="form-control" formControlName="name" placeholder="Name" required>
+                    <input type = "text" class="form-control" formControlName="name" placeholder="Name" >
+                    <p *ngIf = "contactUsForm.controls.name.invalid && contactUsForm.controls.name.touched" class="text-successful">username required</p>
                 </div>
+
                 <div class="form-group align-center" >
                     <input type = "text" class="form-control" formControlName="email" placeholder="Email" >
+                    <p *ngIf = "contactUsForm.controls.email.invalid && contactUsForm.controls.email.touched" class="text-successful">provide correct email address</p>
                 </div>
+
                 <div class="form-group align-center" >
                     <input type = "text" class="form-control" formControlName="phone" placeholder="Phone" required>
+                    <p *ngIf = "contactUsForm.controls.phone.invalid && contactUsForm.controls.phone.touched" class="text-successful">provide correct phone number</p>
                 </div>
+
                 <re-captcha (resolved)="resolved($event)" siteKey="6Ld529MUAAAAAP8eLRTv4pDIwH6R1T2yS6G3syFO" style="width: 00px;">
-    
+
                 </re-captcha>
                 <br>
-                <button class="btn btn-secondary btn-lg btn-block" type="submit">LET'S TALK</button>    
+                <div><button class="btn btn-secondary btn-lg btn-block" type="submit" [disabled]="!captcha || !contactUsForm.valid" (click)="onInfoSubmitted('Information Submitted')">LET'S TALK</button></div>
             </form>
         </div>
     </div>
     <div class="col-md-4"></div>
 </div>
+

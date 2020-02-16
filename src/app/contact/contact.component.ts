@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, FormGroup, Validator, Validators } from '@angular/forms';
+import {SectionsService} from '../services/sections.service';
+import {Router} from '@angular/router';
+
 
 @Component({
   selector: 'app-contact',
@@ -8,33 +11,52 @@ import { FormBuilder } from '@angular/forms';
 })
 export class ContactComponent implements OnInit {
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder,
+              private router: Router,
+              private sectionService: SectionsService,
+              ) {
 
+    this.router.routeReuseStrategy.shouldReuseRoute = () => {
+      return false;
+    };
+  }
+
+  show: boolean = false;
   contactDescription;
+  captcha = false;
 
-  contactUsForm = this.formBuilder.group({
-    name: [''],
-    email: [''],
-    phone: ['']
-  });
+  contactUsForm;
 
   resolved(captchaResponse: string) {
     console.log('Resolved captcha with response: ${captchaResponse}');
+    this.captcha = true;
 }
 
   ngOnInit() {
-    //this.contactDescription =  this.contactService.getContactDescription();
-    // tslint:disable-next-line: max-line-length
+    this.createForm();
+    // tslint:disable-next-line:max-line-length
     this.contactDescription = 'We love to meet up with fellow travelers and explore areas together. The adventure is not only about the area you are checking out, but the people you are checking it out with.';
   }
 
   onContactSubmit() {
-    // this.contactService.postContactData(this.contactUsForm.value)
-    // .subscribe(
-    //   response => console.log('Successfully submit', response),
-    //   error => console.log('Error', error)
-    // );
+    this.sectionService.postContactData(this.contactUsForm.value)
+    .subscribe(
+      (response) => {
+        console.log('Successfully submit');
+        this.contactUsForm.reset();
+        this.captcha = false;
+      },
+      error => console.log('Error', error)
+    );
+      alert('Information Submitted');
+  }
 
+  private createForm() {
+    this.contactUsForm = this.formBuilder.group({
+      name: ['', Validators.required],
+      email: ['',Validators.email],
+      phone: ['', Validators.pattern("^[0-9]{10,12}$")]
+    });
   }
 
 }
