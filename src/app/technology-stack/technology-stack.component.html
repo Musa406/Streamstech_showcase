@@ -1,68 +1,19 @@
-
-<div style="margin-top: 5%;">
-    
-</div>
-
-<!-- <div class="fusion-layout-column fusion_builder_column fusion_builder_column_2_3 fusion-builder-column-50 fusion-two-third fusion-column-first 2_3" style="margin-top:0px;margin-bottom:20px;width:66.66%;width:calc(66.66% - ( ( 4% ) * 0.6666 ) );margin-right: 4%;">
-    <div class="fusion-column-wrapper" style="padding: 0px 6%; background-position: left top; background-repeat: no-repeat; background-size: cover; height: auto;" data-bg-url="">
-        <div class="fusion-column-content-centered"><div class="fusion-column-content">
-<div class="table-2">
-<table width="100%">
-<tbody>
-<tr>
-<td style="border-right: 4px solid #656565; border-bottom: 0px; width: 70px; padding-left: 0px;"><strong><span style="color: #333333;">Backend</span></strong></td>
-<td align="left"><strong><span style="color: #333333;">ASP.NET, JAVA,C++,C#</span></strong></td>
-</tr>
-<tr>
-<td style="border-right: 4px solid #656565; border-bottom: 0px; width: 70px; padding-left: 0px;"><strong><span style="color: #333333; border-bottom: 0px;">Frontend</span></strong></td>
-<td align="left"><strong><span style="color: #333333;">Angular JS, React JS</span></strong></td>
-</tr>
-<tr>
-<td style="border-right: 4px solid #656565; border-bottom: 0px; padding-left: 0px;" align="left"><strong><span style="color: #333333; border-bottom: 0px; width: 70px;">BI</span></strong></td>
-<td align="left"><strong><span style="color: #333333;">Power BI&nbsp;</span></strong></td>
-</tr>
-<tr>
-<td style="border-right: 4px solid #656565; border-bottom: 0px; width: 70px; padding-left: 0px;" align="left"><span style="color: #333333;"><strong>Tools</strong></span></td>
-<td align="left"><span style="color: #333333;"><strong>Power BI&nbsp;</strong></span></td>
-</tr>
-</tbody>
-</table>
-</div>
-</div></div><div class="fusion-clearfix"></div>
-
-    </div>
-</div> -->
-
-
-<div class="container-fluid">
-    <div class="row" style="margin-top: 80px;">        
+<div class="container-fluid main">
+    <div class="row">        
         <div class="col-md-2"></div>
         <div class="col-md-6">
-            <h2 style="margin-bottom: 40px;">Technology Stack</h2>
+            <h2>Technology Stack</h2>
+            <hr align="left">
            <div class="row">
-               
                 <div class="table-2">
                     <table width="100%">
                     <tbody>
                         
-                            <tr>
-                                <td class="tdLeft"><strong>Backend</strong></td>
-                                <td class="tdRight"><strong><span></span>JAVA                C++, C#</strong></td>
+                            <tr *ngFor = "let data of techStackData">
+                                <td class="tdLeft"><strong>{{data.name}}</strong></td>
+                                <td class="tdRight"><span></span>{{data.details}}</td>
                             </tr>
-                          
-                            <tr>
-                                <td class="tdLeft"><strong>Frontend</strong></td>
-                                <td class="tdRight"><strong><span></span>Angular JS, React JS</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="tdLeft"><strong>BI</strong></td>
-                                <td class="tdRight"><strong><span></span>Power BI</strong></td>
-                            </tr>
-                            <tr>
-                                <td class="tdLeft"><strong>Tools</strong></td>
-                                <td class="tdRight"><strong><span>Power BI</span></strong></td>
-                            </tr>
-                  
+                           
                     </tbody>
                     </table>
                     </div>
@@ -72,5 +23,4 @@
            
         </div>
         <div class="col-md-5"></div>
-    </div>
 </div>

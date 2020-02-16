@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { SectionsService } from '../services/sections.service';
 
 @Component({
   selector: 'app-technology-stack',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TechnologyStackComponent implements OnInit {
 
-  constructor() { }
+  techStackData: any;
+  constructor(private service: SectionsService) { }
 
   ngOnInit() {
+    this.service.getTechnologyStackData().
+    subscribe(data=>this.techStackData=data);
   }
-
 }
