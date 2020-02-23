@@ -1,0 +1,17 @@
+[
+    {
+        "name": "FrontEnd", "details": "Html, CSS, Angular"
+    },
+    {
+        "name": "Backend", "details": "C#, Python"
+    },
+    {
+        "name": "Tools", "details": "BI"
+    },
+    {
+        "name": "Technology", "details": "..............."
+    },
+    {
+        "name": "............", "details": "..............."
+    }
+]
